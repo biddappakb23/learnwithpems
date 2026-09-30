@@ -1,0 +1,362 @@
+{
+  "entities": {
+    "course": {
+      "title": "Course",
+      "description": "Top-level course catalog entity",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "courseCode": { "type": "string", "maxLength": 50 },
+        "title": { "type": "string", "maxLength": 200 },
+        "shortDesc": { "type": "string", "maxLength": 500 },
+        "detailedDesc": { "type": "string" },
+        "category": { "type": "string" },
+        "difficulty": { "type": "string", "enum": ["Beginner", "Intermediate", "Advanced"] },
+        "estimatedDurationHours": { "type": "number" },
+        "instructorName": { "type": "string" },
+        "instructorTitle": { "type": "string" },
+        "thumbnailUrl": { "type": "string" },
+        "badge": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "learningOutcomes": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string", "enum": ["Draft", "Published", "Archived"] },
+        "displayOrder": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "title", "difficulty", "status"]
+    },
+    "user": {
+      "title": "User Account",
+      "description": "User profile and credentials/roles",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 200 },
+        "passwordHash": { "type": "string", "maxLength": 100 },
+        "role": { "type": "string", "enum": ["STUDENT", "ADMIN"] },
+        "status": { "type": "string", "enum": ["PENDING", "APPROVED", "REJECTED"] },
+        "registeredAt": { "type": "string" },
+        "approvedAt": { "type": "string" },
+        "rejectedReason": { "type": "string", "maxLength": 500 }
+      },
+      "required": ["id", "name", "email", "role", "status", "registeredAt"]
+    },
+    "module": {
+      "title": "Module",
+      "description": "Learning module in C course",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "moduleNumber": { "type": "number" },
+        "title": { "type": "string", "maxLength": 200 },
+        "shortDesc": { "type": "string", "maxLength": 500 },
+        "detailedDesc": { "type": "string" },
+        "difficulty": { "type": "string", "enum": ["Beginner", "Intermediate", "Advanced"] },
+        "estimatedDurationHours": { "type": "number" },
+        "status": { "type": "string", "enum": ["Draft", "Published", "Archived"] },
+        "displayOrder": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "moduleNumber", "title", "difficulty", "status"]
+    },
+    "chapter": {
+      "title": "Chapter",
+      "description": "Sub-chapter in a module",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "moduleId": { "type": "string" },
+        "chapterNumber": { "type": "number" },
+        "title": { "type": "string", "maxLength": 200 },
+        "description": { "type": "string" },
+        "displayOrder": { "type": "number" },
+        "status": { "type": "string", "enum": ["Draft", "Published", "Archived"] },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "moduleId", "chapterNumber", "title"]
+    },
+    "lesson": {
+      "title": "Lesson",
+      "description": "Educational content unit",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "moduleId": { "type": "string" },
+        "chapterId": { "type": "string" },
+        "title": { "type": "string", "maxLength": 200 },
+        "shortDesc": { "type": "string" },
+        "theoryContent": { "type": "string" },
+        "syntax": { "type": "string" },
+        "estimatedMinutes": { "type": "number" },
+        "difficulty": { "type": "string", "enum": ["Beginner", "Intermediate", "Advanced"] },
+        "displayOrder": { "type": "number" },
+        "status": { "type": "string", "enum": ["Draft", "Published", "Archived"] },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "moduleId", "chapterId", "title"]
+    },
+    "quizQuestion": {
+      "title": "Quiz Question",
+      "description": "Assessment question for modules or lessons",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "moduleId": { "type": "string" },
+        "lessonId": { "type": "string" },
+        "type": { "type": "string", "enum": ["mcq", "true_false", "fill_blank", "code_output"] },
+        "question": { "type": "string" },
+        "codeSnippet": { "type": "string" },
+        "explanation": { "type": "string" },
+        "marks": { "type": "number" },
+        "difficulty": { "type": "string", "enum": ["Easy", "Medium", "Hard"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "moduleId", "type", "question", "marks"]
+    },
+    "practiceProblem": {
+      "title": "Practice Problem",
+      "description": "Coding challenge or exercise",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string", "maxLength": 200 },
+        "category": { "type": "string" },
+        "difficulty": { "type": "string", "enum": ["Beginner", "Intermediate", "Advanced"] },
+        "description": { "type": "string" },
+        "inputFormat": { "type": "string" },
+        "outputFormat": { "type": "string" },
+        "starterCode": { "type": "string" },
+        "solutionCode": { "type": "string" },
+        "displayOrder": { "type": "number" },
+        "status": { "type": "string", "enum": ["Draft", "Published", "Archived"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "title", "difficulty", "description"]
+    },
+    "quizAttempt": {
+      "title": "Quiz Attempt",
+      "description": "Record of a student quiz submission",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "moduleId": { "type": "string" },
+        "score": { "type": "number" },
+        "totalMarks": { "type": "number" },
+        "attemptedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "moduleId", "score"]
+    },
+    "studentProgress": {
+      "title": "Student Progress",
+      "description": "Progress tracking data for a student",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "totalXP": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId"]
+    },
+    "setting": {
+      "title": "Site Settings",
+      "description": "Platform settings including branding, logo, contact email, and announcements",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "siteLogo": { "type": "string" },
+        "siteName": { "type": "string" },
+        "contactEmail": { "type": "string" },
+        "contactPhone": { "type": "string" },
+        "academicDepartment": { "type": "string" },
+        "announcementPopup": { "type": "object" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "contactEmail"]
+    },
+    "contactMessage": {
+      "title": "Contact Message",
+      "description": "Inquiries submitted by students or visitors",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "subject": { "type": "string" },
+        "message": { "type": "string" },
+        "submittedAt": { "type": "string" },
+        "read": { "type": "boolean" }
+      },
+      "required": ["id", "name", "email", "message", "submittedAt"]
+    },
+    "enrollment": {
+      "title": "Course Enrollment",
+      "description": "Student enrollment in a course",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "studentEmail": { "type": "string" },
+        "courseId": { "type": "string" },
+        "courseTitle": { "type": "string" },
+        "status": { "type": "string", "enum": ["PENDING", "APPROVED", "REJECTED"] },
+        "requestedAt": { "type": "string" },
+        "reviewedAt": { "type": "string" },
+        "reviewedBy": { "type": "string" }
+      },
+      "required": ["id", "studentId", "courseId", "status", "requestedAt"]
+    },
+    "instructor": {
+      "title": "Course Instructor",
+      "description": "Instructor assigned to teach courses",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "department": { "type": "string" },
+        "assignedCourseIds": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string", "enum": ["ACTIVE", "INACTIVE"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "assignedCourseIds", "status"]
+    },
+    "auditLog": {
+      "title": "Audit Log",
+      "description": "System administrative audit log record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "actorId": { "type": "string" },
+        "actorName": { "type": "string" },
+        "actorRole": { "type": "string" },
+        "action": { "type": "string" },
+        "targetType": { "type": "string" },
+        "targetId": { "type": "string" },
+        "details": { "type": "string" }
+      },
+      "required": ["id", "timestamp", "actorName", "action", "targetType"]
+    },
+    "customMenu": {
+      "title": "Custom Navigation Menu",
+      "description": "Navigation menu and submenus configured for site header, sidebar, and pages",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "label": { "type": "string", "maxLength": 100 },
+        "path": { "type": "string", "maxLength": 200 },
+        "type": { "type": "string" },
+        "order": { "type": "number" },
+        "isActive": { "type": "boolean" },
+        "badge": { "type": "string" },
+        "submenus": { "type": "array" }
+      },
+      "required": ["id", "label"]
+    },
+    "studentDoubt": {
+      "title": "Student Doubt & Helpline Query",
+      "description": "Academic query submitted by students with AI assistance and author replies",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "studentEmail": { "type": "string" },
+        "studentCollege": { "type": "string" },
+        "subjectId": { "type": "string" },
+        "subjectTitle": { "type": "string" },
+        "topic": { "type": "string" },
+        "question": { "type": "string" },
+        "codeSnippet": { "type": "string" },
+        "programmingLanguage": { "type": "string" },
+        "category": { "type": "string" },
+        "status": { "type": "string", "enum": ["PENDING_AUTHOR_REPLY", "AUTHOR_REPLIED", "RESOLVED"] },
+        "aiResponse": { "type": "string" },
+        "aiRespondedAt": { "type": "string" },
+        "authorReply": { "type": "string" },
+        "authorRepliedBy": { "type": "string" },
+        "authorRepliedAt": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "studentId", "subjectId", "question", "status"]
+    }
+  },
+  "firestore": {
+    "/courses/{courseId}": {
+      "schema": { "$ref": "#/entities/course" },
+      "description": "Course catalog offerings"
+    },
+    "/navigation/{docId}": {
+      "schema": { "$ref": "#/entities/customMenu" },
+      "description": "Custom navigation configuration"
+    },
+    "/customMenus/{menuId}": {
+      "schema": { "$ref": "#/entities/customMenu" },
+      "description": "Navigation menus"
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/user" },
+      "description": "User account documents"
+    },
+    "/modules/{moduleId}": {
+      "schema": { "$ref": "#/entities/module" },
+      "description": "Course learning modules"
+    },
+    "/chapters/{chapterId}": {
+      "schema": { "$ref": "#/entities/chapter" },
+      "description": "Chapters under modules"
+    },
+    "/lessons/{lessonId}": {
+      "schema": { "$ref": "#/entities/lesson" },
+      "description": "Lessons in chapters"
+    },
+    "/quizQuestions/{questionId}": {
+      "schema": { "$ref": "#/entities/quizQuestion" },
+      "description": "Quiz questions"
+    },
+    "/practiceProblems/{problemId}": {
+      "schema": { "$ref": "#/entities/practiceProblem" },
+      "description": "Practice coding exercises"
+    },
+    "/quizAttempts/{attemptId}": {
+      "schema": { "$ref": "#/entities/quizAttempt" },
+      "description": "Quiz attempt scores"
+    },
+    "/studentProgress/{userId}": {
+      "schema": { "$ref": "#/entities/studentProgress" },
+      "description": "Student progress details"
+    },
+    "/settings/{settingId}": {
+      "schema": { "$ref": "#/entities/setting" },
+      "description": "Global application and branding settings"
+    },
+    "/contactMessages/{messageId}": {
+      "schema": { "$ref": "#/entities/contactMessage" },
+      "description": "Contact form submissions"
+    },
+    "/enrollments/{enrollmentId}": {
+      "schema": { "$ref": "#/entities/enrollment" },
+      "description": "Course enrollment records"
+    },
+    "/instructors/{instructorId}": {
+      "schema": { "$ref": "#/entities/instructor" },
+      "description": "Instructor profiles and course assignments"
+    },
+    "/auditLogs/{logId}": {
+      "schema": { "$ref": "#/entities/auditLog" },
+      "description": "Administrative actions audit log"
+    },
+    "/studentDoubts/{doubtId}": {
+      "schema": { "$ref": "#/entities/studentDoubt" },
+      "description": "Student subject helpline queries and author clarifications"
+    }
+  }
+}

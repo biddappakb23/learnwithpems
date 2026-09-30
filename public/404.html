@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnWithPems – Loading...</title>
+    <script>
+      // Single Page App fallback routing for static hosts
+      (function() {
+        var path = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+        // Redirect to root with path query if needed or re-trigger SPA loading
+        window.location.replace('/' + (path && path !== '/' ? '?route=' + encodeURIComponent(path + search + hash) : ''));
+      })();
+    </script>
+  </head>
+  <body style="margin: 0; font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; height: 100vh;">
+    <div style="text-align: center;">
+      <div style="width: 40px; height: 40px; border: 3px solid rgba(59, 130, 246, 0.2); border-top-color: #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 16px;"></div>
+      <h2 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 8px;">Loading LearnWithPems...</h2>
+      <p style="color: #94a3b8; font-size: 0.875rem; margin: 0;">Redirecting to your requested page...</p>
+    </div>
+    <style>
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </body>
+</html>

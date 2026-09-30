@@ -1,0 +1,8 @@
+{
+  "name": "LearnWithPems",
+  "description": "Learn Today. Build Tomorrow. Modern EdTech learning platform with customizable courses, interactive programming workspace, and curriculum management by Pemmaiah UT.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

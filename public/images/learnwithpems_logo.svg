@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 130" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="lwpNavyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2b5c" />
+      <stop offset="100%" stop-color="#091836" />
+    </linearGradient>
+    <linearGradient id="lwpCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00c8ff" />
+      <stop offset="100%" stop-color="#0088cc" />
+    </linearGradient>
+    <linearGradient id="lwpStarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <filter id="lwpGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- LOGO EMBLEM / ICON (Left) -->
+  <g transform="translate(15, 10)">
+    <!-- Open Book Base Pages (Navy & Cyan) -->
+    <!-- Left Book Wing (Navy) -->
+    <path d="M 50 82 C 34 82 18 88 10 94 C 18 84 34 78 50 78 C 50 78 50 82 50 82 Z" fill="#0f2b5c" />
+    <path d="M 50 90 C 32 90 14 97 5 104 C 16 93 33 86 50 86 Z" fill="#1e3a8a" />
+    <path d="M 50 98 C 30 98 12 105 2 112 C 14 102 32 94 50 94 Z" fill="#0284c7" />
+
+    <!-- Right Book Wing (Cyan) -->
+    <path d="M 54 82 C 70 82 86 88 94 94 C 86 84 70 78 54 78 C 54 78 54 82 54 82 Z" fill="#0284c7" />
+    <path d="M 54 90 C 72 90 90 97 99 104 C 88 93 71 86 54 86 Z" fill="#0ea5e9" />
+    <path d="M 54 98 C 74 98 92 105 102 112 C 90 102 72 94 54 94 Z" fill="#38bdf8" />
+
+    <!-- Stylized 'L' (Navy ribbon) -->
+    <path d="M 28 20 C 28 14 34 14 34 20 L 34 72 C 34 76 38 78 44 78 L 56 78 C 60 78 60 84 56 84 L 32 84 C 26 84 24 80 24 74 L 24 24 C 24 18 28 16 28 20 Z" 
+          fill="url(#lwpNavyGrad)" />
+
+    <!-- Stylized 'P' (Cyan swoosh with loop) -->
+    <path d="M 44 14 L 44 74 C 44 79 48 81 52 81 C 56 81 56 75 52 75 L 50 75 L 50 48 C 54 48 68 48 76 42 C 84 36 86 24 78 17 C 70 11 54 11 44 14 Z M 52 20 C 58 19 70 19 73 24 C 76 29 73 38 68 40 C 62 42 54 41 52 41 Z" 
+          fill="url(#lwpCyanGrad)" />
+
+    <!-- 4-Point Star Sparkle at P Apex -->
+    <path d="M 82 14 Q 82 22 90 22 Q 82 22 82 30 Q 82 22 74 22 Q 82 22 82 14 Z" 
+          fill="url(#lwpStarGrad)" filter="url(#lwpGlow)" />
+    <!-- Secondary small sparkle -->
+    <path d="M 94 32 Q 94 36 98 36 Q 94 36 94 40 Q 94 36 90 36 Q 94 36 94 32 Z" 
+          fill="#38bdf8" />
+  </g>
+
+  <!-- BRAND TYPOGRAPHY (Right) -->
+  <g transform="translate(135, 62)">
+    <!-- "Learn" (Deep Navy) -->
+    <text x="0" y="0" 
+          font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif" 
+          font-size="44" 
+          font-weight="900" 
+          letter-spacing="-0.5" 
+          fill="#0f2b5c">Learn</text>
+
+    <!-- "with" (Cyan Highlight) -->
+    <text x="132" y="0" 
+          font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif" 
+          font-size="44" 
+          font-weight="900" 
+          letter-spacing="-0.5" 
+          fill="#00a3e0">with</text>
+
+    <!-- "Pems" (Deep Navy) -->
+    <text x="228" y="0" 
+          font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif" 
+          font-size="44" 
+          font-weight="900" 
+          letter-spacing="-0.5" 
+          fill="#0f2b5c">Pems</text>
+
+    <!-- Subtitle: "— Learn Beyond Limits —" -->
+    <g transform="translate(4, 26)">
+      <!-- Left Dash line -->
+      <line x1="0" y1="-5" x2="32" y2="-5" stroke="#00a3e0" stroke-width="2" stroke-linecap="round" />
+      <!-- Subtitle Text -->
+      <text x="44" y="0" 
+            font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif" 
+            font-size="16" 
+            font-weight="700" 
+            letter-spacing="2.5" 
+            fill="#0f2b5c">LEARN BEYOND LIMITS</text>
+      <!-- Right Dash line -->
+      <line x1="334" y1="-5" x2="366" y2="-5" stroke="#00a3e0" stroke-width="2" stroke-linecap="round" />
+    </g>
+  </g>
+</svg>

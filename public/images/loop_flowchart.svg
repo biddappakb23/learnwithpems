@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 500" width="100%" height="100%" style="background:#ffffff; border-radius:12px; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <!-- Flowchart Diagram matching Page 41 of C Notes -->
+  
+  <!-- Loop Entry -->
+  <circle cx="270" cy="40" r="14" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="300" y="45" font-size="16" font-weight="bold" fill="#0f172a">Loop Entry</text>
+
+  <!-- Arrow down to decision diamond -->
+  <line x1="270" y1="54" x2="270" y2="120" stroke="#0f172a" stroke-width="2"/>
+  <polygon points="270,120 265,110 275,110" fill="#0f172a"/>
+
+  <!-- Test Condition Diamond -->
+  <polygon points="270,130 350,190 270,250 190,190" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+  <text x="270" y="185" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f172a">Test</text>
+  <text x="270" y="205" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f172a">Condition ?</text>
+
+  <!-- True path downwards to Execute Loop -->
+  <line x1="270" y1="250" x2="270" y2="310" stroke="#0f172a" stroke-width="2"/>
+  <polygon points="270,310 265,300 275,300" fill="#0f172a"/>
+  <text x="285" y="280" font-size="14" font-weight="bold" fill="#16a34a">true</text>
+
+  <!-- Execute Loop Box -->
+  <rect x="180" y="310" width="180" height="60" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="270" y="338" text-anchor="middle" font-size="15" font-weight="bold" fill="#166534">Execute</text>
+  <text x="270" y="358" text-anchor="middle" font-size="15" font-weight="bold" fill="#166534">Loop Body</text>
+
+  <!-- Loop back path (Running...) -->
+  <line x1="180" y1="340" x2="110" y2="340" stroke="#0f172a" stroke-width="2"/>
+  <line x1="110" y1="340" x2="110" y2="40" stroke="#0f172a" stroke-width="2"/>
+  <line x1="110" y1="40" x2="256" y2="40" stroke="#0f172a" stroke-width="2"/>
+  <polygon points="256,40 246,35 246,45" fill="#0f172a"/>
+  <text x="45" y="200" font-size="13" font-weight="600" fill="#64748b">running...</text>
+
+  <!-- False path to Out of Loop -->
+  <line x1="350" y1="190" x2="430" y2="190" stroke="#0f172a" stroke-width="2"/>
+  <line x1="430" y1="190" x2="430" y2="420" stroke="#0f172a" stroke-width="2"/>
+  <line x1="430" y1="420" x2="270" y2="420" stroke="#0f172a" stroke-width="2"/>
+  <line x1="270" y1="420" x2="270" y2="445" stroke="#0f172a" stroke-width="2"/>
+  <polygon points="270,445 265,435 275,435" fill="#0f172a"/>
+  <text x="365" y="180" font-size="14" font-weight="bold" fill="#dc2626">false</text>
+
+  <!-- Out of Loop Circle/Label -->
+  <rect x="180" y="445" width="180" height="38" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="270" y="469" text-anchor="middle" font-size="15" font-weight="bold" fill="#991b1b">Out of Loop</text>
+</svg>

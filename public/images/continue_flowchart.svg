@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 390" width="100%" height="100%" style="background:#ffffff; border-radius:12px; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <!-- Continue Statement Flow Diagram matching Page 47 -->
+  <rect x="20" y="15" width="610" height="360" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Code Block simulation -->
+  <rect x="40" y="30" width="280" height="330" rx="8" fill="#0f172a"/>
+  
+  <text x="60" y="65" fill="#38bdf8" font-size="14" font-family="monospace" font-weight="bold">while( condition check )</text>
+  <text x="60" y="90" fill="#e2e8f0" font-size="14" font-family="monospace">{</text>
+  <text x="80" y="115" fill="#94a3b8" font-size="14" font-family="monospace">statement-1;</text>
+  <text x="80" y="140" fill="#94a3b8" font-size="14" font-family="monospace">statement-2;</text>
+  <text x="80" y="165" fill="#facc15" font-size="14" font-family="monospace">if( some condition )</text>
+  <text x="80" y="190" fill="#e2e8f0" font-size="14" font-family="monospace">{</text>
+  <text x="110" y="215" fill="#10b981" font-size="16" font-family="monospace" font-weight="bold">continue;</text>
+  <text x="80" y="240" fill="#e2e8f0" font-size="14" font-family="monospace">}</text>
+  <text x="80" y="265" fill="#ef4444" font-size="14" font-family="monospace" opacity="0.6">statement-3;</text>
+  <text x="80" y="290" fill="#ef4444" font-size="14" font-family="monospace" opacity="0.6">statement-4;</text>
+  <text x="60" y="325" fill="#e2e8f0" font-size="14" font-family="monospace">}</text>
+
+  <!-- Arrow from continue looping back up directly to condition check -->
+  <path d="M 210 210 H 340 V 60 H 260" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="6,4"/>
+  <polygon points="250,60 265,53 265,67" fill="#10b981"/>
+
+  <!-- Left/Top annotation: Jumps to the next cycle directly -->
+  <rect x="350" y="45" width="260" height="60" rx="8" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1.5"/>
+  <text x="365" y="70" font-size="13" font-weight="bold" fill="#065f46">Jumps to the next cycle directly</text>
+  <text x="365" y="90" font-size="12" fill="#047857">Re-evaluates condition check</text>
+
+  <!-- Right/Bottom annotation: Not executed for this cycle -->
+  <rect x="350" y="250" width="260" height="75" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="365" y="275" font-size="13" font-weight="bold" fill="#991b1b">Skipped Statements:</text>
+  <text x="365" y="295" font-size="12" fill="#b91c1c">Not executed for the cycle of loop</text>
+  <text x="365" y="313" font-size="12" fill="#b91c1c">in which continue is executed.</text>
+</svg>

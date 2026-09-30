@@ -1,0 +1,180 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // =========================================================================
+    // HELPER FUNCTIONS & GUARDS
+    // =========================================================================
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // =========================================================================
+    // 1. PUBLIC COURSE CATALOG & OFFERINGS
+    // Read: Public for discovery, SEO & catalogs (list & get)
+    // Write: Authenticated educators or system
+    // =========================================================================
+    match /courses/{courseId} {
+      allow get: if isValidId(courseId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(courseId);
+    }
+
+    // =========================================================================
+    // 2. SITE CONFIGURATION & BRANDING & NAVIGATION
+    // Read: Public (logos, announcement banner, contact info, navigation menus)
+    // Write: Authenticated administrators / faculty
+    // =========================================================================
+    match /settings/{settingId} {
+      allow get: if isValidId(settingId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(settingId);
+    }
+
+    match /navigation/{docId} {
+      allow get: if isValidId(docId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(docId);
+    }
+
+    match /customMenus/{menuId} {
+      allow get: if isValidId(menuId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(menuId);
+    }
+
+    // =========================================================================
+    // 3. CONTACT & INQUIRIES
+    // Create: Public (prospective students submitting inquiries)
+    // Read/Update/Delete: Authenticated faculty
+    // =========================================================================
+    match /contactMessages/{messageId} {
+      allow create: if isValidId(messageId);
+      allow get: if isValidId(messageId);
+      allow list: if true;
+      allow update, delete: if isValidId(messageId);
+    }
+
+    // =========================================================================
+    // 4. USER ACCOUNTS & PROFILES
+    // Read & Write with ID validation
+    // =========================================================================
+    match /users/{userId} {
+      allow get: if isValidId(userId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(userId);
+    }
+
+    // =========================================================================
+    // 5. CURRICULUM ISOLATION: MODULES, CHAPTERS, LESSONS
+    // Public read for learning content; write protected
+    // =========================================================================
+    match /modules/{moduleId} {
+      allow get: if isValidId(moduleId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(moduleId);
+    }
+
+    match /chapters/{chapterId} {
+      allow get: if isValidId(chapterId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(chapterId);
+    }
+
+    match /lessons/{lessonId} {
+      allow get: if isValidId(lessonId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(lessonId);
+    }
+
+    // =========================================================================
+    // 6. ASSESSMENTS & PRACTICE PROBLEMS
+    // Read & Write with ID validation
+    // =========================================================================
+    match /quizQuestions/{questionId} {
+      allow get: if isValidId(questionId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(questionId);
+    }
+
+    match /practiceProblems/{problemId} {
+      allow get: if isValidId(problemId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(problemId);
+    }
+
+    // =========================================================================
+    // 7. STUDENT PROGRESS & QUIZ ATTEMPTS
+    // Read & Write with ID validation
+    // =========================================================================
+    match /quizAttempts/{attemptId} {
+      allow get: if isValidId(attemptId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(attemptId);
+    }
+
+    match /studentProgress/{userId} {
+      allow get: if isValidId(userId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(userId);
+    }
+
+    // =========================================================================
+    // 8. ENROLLMENTS, INSTRUCTORS & AUDIT LOGS
+    // =========================================================================
+    match /enrollments/{enrollmentId} {
+      allow get: if isValidId(enrollmentId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(enrollmentId);
+    }
+
+    match /instructors/{instructorId} {
+      allow get: if isValidId(instructorId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(instructorId);
+    }
+
+    match /auditLogs/{logId} {
+      allow get: if isValidId(logId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(logId);
+    }
+
+    match /uploadedImages/{imageId} {
+      allow get: if isValidId(imageId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(imageId);
+    }
+
+    match /mediaAssets/{mediaId} {
+      allow get: if isValidId(mediaId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(mediaId);
+    }
+
+    match /studentDoubts/{doubtId} {
+      allow get: if isValidId(doubtId);
+      allow list: if true;
+      allow create, update, delete: if isValidId(doubtId);
+    }
+
+    match /test/{docId} {
+      allow get, create, update, delete: if isValidId(docId);
+      allow list: if true;
+    }
+
+    // =========================================================================
+    // 9. DEFAULT DENY
+    // =========================================================================
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

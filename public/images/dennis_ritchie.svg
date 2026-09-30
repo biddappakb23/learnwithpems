@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 450" width="100%" height="100%" style="background:#f8fafc; border-radius:16px;">
+  <defs>
+    <linearGradient id="dennisGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Frame Background -->
+  <rect width="400" height="450" rx="16" fill="#0f172a"/>
+  
+  <!-- Subtle Grid Header -->
+  <rect x="20" y="20" width="360" height="340" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <rect x="20" y="20" width="360" height="340" rx="12" fill="url(#glow)"/>
+
+  <!-- Dennis Ritchie Stylized Graphic Silhouette & Face Portrait -->
+  <circle cx="200" cy="130" r="60" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <!-- Hair & Beard -->
+  <path d="M 140 130 C 140 70, 260 70, 260 130 C 260 145, 250 160, 245 165 C 240 180, 245 205, 230 215 C 215 225, 185 225, 170 215 C 155 205, 160 180, 155 165 C 150 160, 140 145, 140 130 Z" fill="#e2e8f0" opacity="0.95" stroke="#cbd5e1" stroke-width="1"/>
+  <!-- Inner Face -->
+  <ellipse cx="200" cy="135" rx="36" ry="42" fill="#fed7aa"/>
+  <!-- Glasses -->
+  <rect x="172" y="120" width="22" height="18" rx="4" fill="none" stroke="#475569" stroke-width="2.5"/>
+  <rect x="206" y="120" width="22" height="18" rx="4" fill="none" stroke="#475569" stroke-width="2.5"/>
+  <line x1="194" y1="128" x2="206" y2="128" stroke="#475569" stroke-width="2.5"/>
+  <line x1="160" y1="126" x2="172" y2="126" stroke="#475569" stroke-width="2"/>
+  <line x1="228" y1="126" x2="240" y2="126" stroke="#475569" stroke-width="2"/>
+  <!-- Eyes -->
+  <circle cx="183" cy="129" r="2.5" fill="#1e293b"/>
+  <circle cx="217" cy="129" r="2.5" fill="#1e293b"/>
+  <!-- Nose -->
+  <path d="M 200 132 L 197 146 L 203 146" fill="none" stroke="#ca8a04" stroke-width="2" stroke-linecap="round"/>
+  <!-- Full Beard & Mustache -->
+  <path d="M 175 148 C 190 144, 210 144, 225 148 C 235 165, 230 198, 200 202 C 170 198, 165 165, 175 148 Z" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <!-- Shoulders & Coat -->
+  <path d="M 120 310 C 120 240, 155 220, 200 220 C 245 220, 280 240, 280 310 Z" fill="#3b82f6" opacity="0.85"/>
+  <path d="M 160 220 L 200 270 L 240 220 Z" fill="#ffffff" opacity="0.9"/>
+  <path d="M 185 240 L 200 310 L 215 240 Z" fill="#1d4ed8"/>
+
+  <!-- Bell Labs / C Badge Overlay -->
+  <rect x="130" y="315" width="140" height="28" rx="6" fill="#0284c7" stroke="#38bdf8" stroke-width="1"/>
+  <text x="200" y="334" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Bell Laboratories, 1972</text>
+
+  <!-- Caption Label -->
+  <text x="200" y="390" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#f8fafc">Dennis Ritchie (1941–2011)</text>
+  <text x="200" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Creator &amp; Father of C Programming Language</text>
+</svg>

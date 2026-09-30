@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="100%" height="100%" style="border-radius:12px; font-family: 'Courier New', Courier, monospace;">
+  <!-- Classic Turbo C Blue IDE Background -->
+  <rect width="720" height="480" fill="#0000aa" rx="10"/>
+
+  <!-- Top Menu Bar -->
+  <rect x="0" y="0" width="720" height="28" fill="#d4d4d4"/>
+  <text x="15" y="19" fill="#000000" font-size="14" font-weight="bold">
+    <tspan fill="#aa0000">F</tspan>ile  <tspan fill="#aa0000">E</tspan>dit  <tspan fill="#aa0000">S</tspan>earch  <tspan fill="#aa0000">R</tspan>un  <tspan fill="#aa0000">C</tspan>ompile  <tspan fill="#aa0000">D</tspan>ebug  <tspan fill="#aa0000">P</tspan>roject  <tspan fill="#aa0000">O</tspan>ptions  <tspan fill="#aa0000">W</tspan>indow  <tspan fill="#aa0000">H</tspan>elp
+  </text>
+
+  <!-- Editor Window Frame -->
+  <rect x="8" y="32" width="704" height="410" fill="#0000aa" stroke="#00aaaa" stroke-width="2"/>
+  <rect x="260" y="27" width="200" height="18" fill="#0000aa"/>
+  <text x="360" y="40" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">\TC\BIN\SAMPLE.C</text>
+
+  <!-- Code text in Turbo C IDE -->
+  <text x="25" y="70" fill="#ffffff" font-size="15">#include &lt;stdio.h&gt;</text>
+  <text x="25" y="92" fill="#ffffff" font-size="15">#include &lt;conio.h&gt;</text>
+  <text x="25" y="114" fill="#ffffff" font-size="15">void main()</text>
+  <text x="25" y="136" fill="#ffffff" font-size="15">{</text>
+  <text x="45" y="158" fill="#55ffff" font-size="15">int no;</text>
+  <text x="45" y="190" fill="#ffff55" font-size="15" font-weight="bold">clrscr();</text>
+  
+  <text x="45" y="222" fill="#ffffff" font-size="15">printf("Enter any number: ");</text>
+  <text x="45" y="244" fill="#ffffff" font-size="15">scanf("%d", &amp;no);</text>
+  <text x="45" y="266" fill="#ffffff" font-size="15">if (no % 2 == 0)</text>
+  <text x="45" y="288" fill="#ffffff" font-size="15">{</text>
+  <text x="65" y="310" fill="#ffffff" font-size="15">printf("Even number");</text>
+  <text x="45" y="332" fill="#ffffff" font-size="15">}</text>
+  <text x="45" y="354" fill="#ffffff" font-size="15">else</text>
+  <text x="45" y="376" fill="#ffffff" font-size="15">{</text>
+  <text x="65" y="398" fill="#ffffff" font-size="15">printf("Odd number");</text>
+  <text x="45" y="420" fill="#ffffff" font-size="15">}</text>
+  <text x="45" y="438" fill="#ffff55" font-size="15" font-weight="bold">getch();</text>
+
+  <!-- Visual Annotation 1: Use After Declaration -->
+  <line x1="160" y1="188" x2="420" y2="188" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <polygon points="420,188 410,183 410,193" fill="#ffffff"/>
+  <rect x="425" y="168" width="260" height="38" rx="6" fill="#facc15" stroke="#ca8a04" stroke-width="2"/>
+  <text x="555" y="192" text-anchor="middle" fill="#000000" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">Use After Declaration</text>
+
+  <!-- Visual Annotation 2: Use Before End of Program -->
+  <line x1="150" y1="434" x2="420" y2="434" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <polygon points="420,434 410,429 410,439" fill="#ffffff"/>
+  <rect x="425" y="414" width="260" height="38" rx="6" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
+  <text x="555" y="438" text-anchor="middle" fill="#000000" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">Use before end of program</text>
+
+  <!-- Bottom Key Helper Bar -->
+  <rect x="0" y="452" width="720" height="28" fill="#d4d4d4"/>
+  <text x="15" y="471" fill="#000000" font-size="13" font-weight="bold">
+    <tspan fill="#aa0000">F1</tspan> Help  <tspan fill="#aa0000">F2</tspan> Save  <tspan fill="#aa0000">F3</tspan> Open  <tspan fill="#aa0000">Alt-F9</tspan> Compile  <tspan fill="#aa0000">F9</tspan> Make  <tspan fill="#aa0000">F10</tspan> Menu
+  </text>
+</svg>
